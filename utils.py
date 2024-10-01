@@ -3,6 +3,8 @@ import functools
 from threading import Timer
 
 sep="---------------------------------------------------------------------------------------------"
+def printEach(path, *args):
+    print(path)
 
 def find_by_ext(path, *args):
     fullname = os.path.split(path)[-1]

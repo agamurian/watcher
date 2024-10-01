@@ -1,1 +1,22 @@
-{"folders_to_watch":["/home/agamurian/gits"]}
+{
+"folders_to_watch":[
+		{
+		"folder":"/home/agamurian/gits/ypsilon",
+		"ignore":[".svelte-kit","build","dist","node_modules",".cache"],
+		"build-time": "3",
+		"action":"yarn build"
+		}
+		,{
+		"folder":"/home/agamurian/gits/agama",
+		"build-time": "10",
+		"ignore":[".svelte-kit","build","dist","node_modules",".cache"],
+		"action":"pnpm run build"
+		}
+		,{
+		"folder":"/home/agamurian/gits/watcher",
+		"build-time": "1",
+		"ignore":[".pyc","__pycache__",".cache"],
+		"action":"killall python && python watcher.py"
+		}
+]
+}
