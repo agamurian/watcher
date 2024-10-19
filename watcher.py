@@ -49,7 +49,7 @@ class MyHandler(FileSystemEventHandler):
         MyHandler.currentQueue = utils.no_doubles(MyHandler.currentQueue)
         folders_to_watch = get_from_json("folders_to_watch")
         print(".",end='')
-        print(folders_to_watch)
+        #print(folders_to_watch)
         if not stop_watching_flag:
             print(f'Watching enabled: {not stop_watching_flag}')
             for folder_action in folders_to_watch:
@@ -58,7 +58,7 @@ class MyHandler(FileSystemEventHandler):
                         if ignored in str(arg):
                             block_watching(4)
                             return
-                    print(f"{arg}\n\t{folder_action['folder']}")
+                    #print(f"{arg}\n\t{folder_action['folder']}")
                     if folder_action['folder'] in str(arg):
                         print(folder_action['folder'])
                         print(folder_action['action'])
@@ -68,14 +68,15 @@ class MyHandler(FileSystemEventHandler):
     def on_modified(self, event):
         if event.is_directory:
             return
-        print(f'{utils.sep}\n\t{event.src_path}\n\t\t has been modified')
+        print(".",end='')
+        # print(f'{utils.sep}\n\t{event.src_path}\n\t\t has been modified')
         MyHandler.currentQueue.append(event.src_path)
-        print(event.src_path)
         self.do_on_event(event.src_path)
 
     def on_created(self, event):
         if event.is_directory:
             return
+        print(".",end='')
         # print(f'File \n\t{event.src_path}\n\t\t has been created')
         MyHandler.currentQueue.append(event.src_path)
         self.do_on_event(event.src_path) 
@@ -83,6 +84,7 @@ class MyHandler(FileSystemEventHandler):
     def on_deleted(self, event):
         if event.is_directory:
             return
+        print(".",end='')
         # print(f'File \n\t{event.src_path}\n\t\t has been deleted')
         self.do_on_event(event.src_path)
 

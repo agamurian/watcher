@@ -13,6 +13,12 @@
 		"action":"pnpm run build"
 		}
 		,{
+		"folder":"/home/agamurian/gits/vivian",
+		"build-time": "10",
+		"ignore":[".svelte-kit","build","dist","node_modules",".cache"],
+		"action":"yarn build"
+		}
+		,{
 		"folder":"/home/agamurian/gits/watcher",
 		"build-time": "1",
 		"ignore":[".pyc","__pycache__",".cache"],
